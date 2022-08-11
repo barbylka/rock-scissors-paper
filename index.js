@@ -17,7 +17,10 @@ function defineWinner(playerPoints, computerPoints) {
 }
 
 function playRound(playerSelection, computerSelection) {
-  const userChoice = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+  let userChoice = 'you';
+  if (playerSelection) {
+    userChoice = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+  }
   const computerChoice = computerSelection;
 
   const selectionMessage = (winner, loser, result) => {
