@@ -12,7 +12,7 @@ function defineWinner(playerPoints, computerPoints) {
   } else if (computerPoints > playerPoints) {
     console.log(`You lose the game! You ${playerPoints} : Computer ${computerPoints}`)
   } else {
-    console.log(`Draw! You ${playerPoints} : Computer ${computerPoints}`)
+    console.log(`Game Draw! You ${playerPoints} : Computer ${computerPoints}`)
   }
 }
 
@@ -63,8 +63,8 @@ function playRound(playerSelection, computerSelection) {
           return true;
       }
     default:
-      selectionMessage(computerChoice, userChoice, 0)
-      return false;
+      alert("Invalid input! Choose paper, rock or scissors");
+      return playRound(getUserSelection(), computerSelection)
   }
 }
 
@@ -88,7 +88,7 @@ function game() {
       userNumPoints++;
       computerNumPoints++;
       displayRoundResults(userNumPoints, computerNumPoints);
-    } else {
+    } else if (!roundResult) {
       computerNumPoints++;
       displayRoundResults(userNumPoints, computerNumPoints);
     }
